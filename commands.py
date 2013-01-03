@@ -133,6 +133,10 @@ def package_as_gae_war(app, env, war_path, war_zip_path, war_exclusion_list = No
     if not os.path.exists(os.path.join(war_path, 'WEB-INF/resources')): os.mkdir(os.path.join(war_path, 'WEB-INF/resources'))
     shutil.copyfile(os.path.join(env["basedir"], 'resources/messages'), os.path.join(war_path, 'WEB-INF/resources/messages'))
 
+    if os.path.exists(os.path.join(war_path, 'public')): shutil.rmtree(os.path.join(war_path, 'public'))
+    os.mkdir(os.path.join(war_path, 'public'))
+    copy_directory(os.path.join(app.path, 'public'), os.path.join(war_path, 'public'))
+
     if war_zip_path:
         print "~ Creating zipped archive to %s ..." % (os.path.normpath(war_zip_path))
         if os.path.exists(war_zip_path):
