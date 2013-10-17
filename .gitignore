@@ -1,4 +1,5 @@
 lib/play-gae.jar
+lib
 .DS_Store
 test-result
 tmp
@@ -7,6 +8,7 @@ eclipse
 *.~*
 dist
 *.pyc
+*.swp
 nbproject
 appengine-generated
 precompiled
@@ -23,3 +25,5 @@ samples-and-tests/lists-with-gae/true
 *.iml
 
 play-framework
+manifest
+out
